@@ -1,0 +1,4 @@
+ToolSet: w64 4.0 (local)@C:\TDM-GCC-64
+Options: 
+
+Options:-DCMAKE_CXX_COMPILER=C:/TDM-GCC-64/bin/g++.exe

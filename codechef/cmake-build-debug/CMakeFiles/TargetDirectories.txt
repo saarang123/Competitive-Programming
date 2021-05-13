@@ -1,0 +1,3 @@
+C:/Users/shriya-student/Documents/competitive programming/newproj/cmake-build-debug/CMakeFiles/newproj.dir
+C:/Users/shriya-student/Documents/competitive programming/newproj/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/shriya-student/Documents/competitive programming/newproj/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,4 @@
+C:\Users\shriya-student\Clion\bin\cmake\win\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_COMPILER=C:/TDM-GCC-64/bin/g++.exe -G "CodeBlocks - MinGW Makefiles" "C:\Users\shriya-student\Documents\competitive programming\newproj"
+-- Configuring done
+-- Generating done
+-- Build files have been written to: C:/Users/shriya-student/Documents/competitive programming/newproj/cmake-build-debug
