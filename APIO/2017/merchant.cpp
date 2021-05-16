@@ -27,10 +27,6 @@ signed main() {
     std::ios::sync_with_stdio(0);
     std::cout.tie(0);
     std::cin.tie(0);
-    #ifdef saarang
-    freopen("/home/saarang/Documents/code/input.txt", "r", stdin);
-    freopen("/home/saarang/Documents/code/output.txt", "w", stdout);
-    #endif
     cin >> n >> m >> items;
     g.assign(n, vector<long long>(n, inf));
     best.assign(n, vector<long long>(n));

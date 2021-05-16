@@ -21,8 +21,8 @@ signed main() {
     std::cout.tie(0);
     std::cin.tie(0);
     #ifdef saarang
-    freopen("/home/saarang/Documents/cp/input.txt", "r", stdin);
-    freopen("/home/saarang/Documents/cp/output.txt", "w", stdout);
+    freopen("/home/saarang/Documents/code/input.txt", "r", stdin);
+    freopen("/home/saarang/Documents/code/output.txt", "w", stdout);
     #endif
     cin >> n >> m;
     memset(dp, 0x0f, sizeof dp);
