@@ -21,7 +21,7 @@ signed main() {
     std::cout.tie(0);
     std::cin.tie(0);
     int tt = 1;
-    //std::cin >> tt;
+    std::cin >> tt;
     while(tt--) {
         solve_case();
     }
@@ -29,5 +29,12 @@ signed main() {
 }
 
 void solve_case() {
-    int n;
+    int n; cin >> n;
+    int ans = 100000;
+    for(int i = 1; i <= 1000 * 1000; i++) {
+        int x = 100 * i;
+        if(x % n) continue;
+        ans = min(ans, x / n);
+    }
+    cout << ans << '\n';
 }

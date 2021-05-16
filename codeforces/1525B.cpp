@@ -21,7 +21,7 @@ signed main() {
     std::cout.tie(0);
     std::cin.tie(0);
     int tt = 1;
-    //std::cin >> tt;
+    std::cin >> tt;
     while(tt--) {
         solve_case();
     }
@@ -29,5 +29,20 @@ signed main() {
 }
 
 void solve_case() {
-    int n;
+    int n; cin >> n;
+    vector<int> a(n);
+    for(int &x : a)
+        cin >> x;
+    vector<int> o(n);
+    iota(o.begin(), o.end(), 1);
+    if(a == o)
+        return cout << 0 << '\n', void();
+    if(a[0] == 1 || a.back() == n)
+        cout << 1 << '\n';
+    else {
+        if(a[0] == n && a.back() == 1)
+            cout << 3 << '\n';
+        else
+            cout << 2 << '\n';
+    }
 }
