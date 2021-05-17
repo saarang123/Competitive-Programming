@@ -1,73 +1,150 @@
 #include <bits/stdc++.h>
 using namespace std;
- 
-template<class T>
-struct SegTree { //1-based
-    vector<T> seg;
-    int _n;
-    SegTree() : _n(0) {}
-    SegTree(int __n) : _n(__n), seg(2 * __n + 5) {}
-    SegTree(vector<T> &a) {
-        _n = a.size();
-        seg.resize(2 * _n + 5);
-        build(a);
+
+// Taken from neal(https://codeforces.com/profile/neal)
+template<const int MOD>
+struct _m_int {
+    int val;
+
+    _m_int(int64_t v = 0) {
+        if (v < 0) v = v % MOD + MOD;
+        if (v >= MOD) v %= MOD;
+        val = int(v);
     }
-    void pull(int x) { seg[x] = seg[x << 1] + seg[x << 1|1]; }
-    void build(vector<T> &a) {
-        for(int i = 0; i < _n; i++)
-            seg[_n + i] = a[i];
-        for(int i = _n - 1; i > 0; i--)
-            pull(i);
+
+    _m_int(uint64_t v) {
+        if (v >= MOD) v %= MOD;
+        val = int(v);
     }
-    void upd(int x, int v) {
-        x += _n - 1; //remove -1 for 0-based
-        seg[x] = v; //assign update
-        for(x >>= 1; x > 0; x >>= 1)
-            pull(x);
-    }
-    T query(int l, int r) { //range [l, r]
-        --l, --r; //comment for 0-based
-        T ans = T();
-        for(l += _n, r += _n + 1; l < r; l >>= 1, r >>= 1) {
-            if(l & 1)
-                ans = ans + seg[l++];
-            if(r & 1)
-                ans = ans + seg[--r];
+
+    _m_int(int v) : _m_int(int64_t(v)) {}
+    _m_int(unsigned v) : _m_int(uint64_t(v)) {}
+
+    static int inv_mod(int a, int m = MOD) {
+        // https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm#Example
+        int g = m, r = a, x = 0, y = 1;
+
+        while (r != 0) {
+            int q = g / r;
+            g %= r; swap(g, r);
+            x -= q * y; swap(x, y);
         }
-        return ans;
+
+        return x < 0 ? x + m : x;
     }
-};
- 
-struct Node {
-    long long value;
-    Node() : value(0) {}
-    Node(long long _x) : value(_x) {}
-    friend Node operator+ (const Node& a, const Node &b) {
-        return Node(a.value + b.value);
+
+    explicit operator int() const { return val; }
+    explicit operator unsigned() const { return val; }
+    explicit operator int64_t() const { return val; }
+    explicit operator uint64_t() const { return val; }
+    explicit operator double() const { return val; }
+    explicit operator long double() const { return val; }
+
+    _m_int& operator+=(const _m_int &other) {
+        val -= MOD - other.val;
+        if (val < 0) val += MOD;
+        return *this;
     }
+
+    _m_int& operator-=(const _m_int &other) {
+        val -= other.val;
+        if (val < 0) val += MOD;
+        return *this;
+    }
+
+    static unsigned fast_mod(uint64_t x, unsigned m = MOD) {
+#if !defined(_WIN32) || defined(_WIN64)
+        return unsigned(x % m);
+#endif
+        // Optimized mod for Codeforces 32-bit machines.
+        // x must be less than 2^32 * m for this to work, so that x / m fits in an unsigned 32-bit int.
+        unsigned x_high = unsigned(x >> 32), x_low = unsigned(x);
+        unsigned quot, rem;
+        asm("divl %4\n"
+            : "=a" (quot), "=d" (rem)
+            : "d" (x_high), "a" (x_low), "r" (m));
+        return rem;
+    }
+
+    _m_int& operator*=(const _m_int &other) {
+        val = fast_mod(uint64_t(val) * other.val);
+        return *this;
+    }
+
+    _m_int& operator/=(const _m_int &other) {
+        return *this *= other.inv();
+    }
+
+    friend _m_int operator+(const _m_int &a, const _m_int &b) { return _m_int(a) += b; }
+    friend _m_int operator-(const _m_int &a, const _m_int &b) { return _m_int(a) -= b; }
+    friend _m_int operator*(const _m_int &a, const _m_int &b) { return _m_int(a) *= b; }
+    friend _m_int operator/(const _m_int &a, const _m_int &b) { return _m_int(a) /= b; }
+
+    _m_int& operator++() {
+        val = val == MOD - 1 ? 0 : val + 1;
+        return *this;
+    }
+
+    _m_int& operator--() {
+        val = val == 0 ? MOD - 1 : val - 1;
+        return *this;
+    }
+
+    _m_int operator++(int) { _m_int before = *this; ++*this; return before; }
+    _m_int operator--(int) { _m_int before = *this; --*this; return before; }
+
+    _m_int operator-() const {
+        return val == 0 ? 0 : MOD - val;
+    }
+
+    friend bool operator==(const _m_int &a, const _m_int &b) { return a.val == b.val; }
+    friend bool operator!=(const _m_int &a, const _m_int &b) { return a.val != b.val; }
+    friend bool operator<(const _m_int &a, const _m_int &b) { return a.val < b.val; }
+    friend bool operator>(const _m_int &a, const _m_int &b) { return a.val > b.val; }
+    friend bool operator<=(const _m_int &a, const _m_int &b) { return a.val <= b.val; }
+    friend bool operator>=(const _m_int &a, const _m_int &b) { return a.val >= b.val; }
+
+    _m_int inv() const {
+        return inv_mod(val);
+    }
+
+    _m_int pow(int64_t p) const {
+        if (p < 0)
+            return inv().pow(-p);
+
+        _m_int a = *this, result = 1;
+
+        while (p > 0) {
+            if (p & 1)
+                result *= a;
+
+            p >>= 1;
+
+            if (p > 0)
+                a *= a;
+        }
+
+        return result;
+    }
+
+    friend ostream& operator << (ostream &os, const _m_int &m) { return os << m.val; }
+    friend istream& operator >> (istream& is, _m_int &m) {is >> m.val; m.val %= MOD; return is;}
 };
- 
+
+const int MOD = 1e9 + 7;
+using mint = _m_int<MOD>;
+
 signed main() {
     std::ios::sync_with_stdio(0);
     std::cout.tie(0);
     std::cin.tie(0);
-    int n, q;
-    cin >> n >> q;
-    vector<Node> a(n);
-    for(auto &x : a)
-        cin >> x.value;
-    SegTree<Node> st(a);
-    while(q--) {
-        int tp; cin >> tp;
-        if(tp == 1) {
-            int pos, x;
-            cin >> pos >> x;
-            st.upd(pos, x);
-        } else {
-            int l, r;
-            cin >> l >> r;
-            cout << st.query(l, r).value << '\n';
-        }
+    int n = 5e5;
+    cout << mint(2).pow(n - 2) << '\n';
+    int p = 1;
+    for(int i = 0; i < n - 2; i++) {
+        p <<= 1;
+        p %= MOD;
     }
+    cout << p << '\n';
     return 0;
 }
