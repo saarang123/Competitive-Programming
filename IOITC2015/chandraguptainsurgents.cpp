@@ -31,6 +31,7 @@ struct SegTree {
 	template<class F>
 	void update(int l, int r, F f) { update(1, 0, n - 1, l, r, f); }
 };
+
 struct Node {
 	array<int, 2> lazy; //slope, constant
 	int mn, occ;

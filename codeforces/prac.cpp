@@ -1,44 +1,72 @@
 #include <bits/stdc++.h>
 using namespace std;
+using ld = long double;
 #define int long long
-const int MXN = 603;
-int dt[MXN][MXN], n, m;
-vector<array<int, 2>> g[MXN];
+#define all(x) x.begin(), x.end()
+#define pb push_back
+#define mp make_pair
+
+std::mt19937 rng((int) std::chrono::steady_clock::now().time_since_epoch().count());
+
+template<class T> bool remin(T& a, const T& b) { return a > b ? a = b, 1 : 0; }
+template<class T> bool remax(T& a, const T& b) { return a < b ? a = b, 1 : 0; }
+template<typename T>
+istream& operator >> (istream& is, vector<T> &a) { for(T &element : a) is >> element; return is; }
+
+
+void solve_case();
+
 signed main() {
     std::ios::sync_with_stdio(0);
     std::cout.tie(0);
     std::cin.tie(0);
-    cin >> n >> m;
-    for(int a, b, c, i = 0; i < m; i++) {
-        cin >> a >> b >> c;
-        g[a].push_back({b, c});
-    }
-
-    for(int i = 0; i < n; i++) {
-        memset(dt, 0x7f, sizeof dt);
-        priority_queue<array<int, 3>, vector<array<int, 3>>, greater<>> pq;
-        dt[i][0] = 0;
-        pq.push({0, 0, i});
-        while(!pq.empty()) {
-            auto [d, t, v] = pq.top();
-            pq.pop();
-            if(dt[v][t] != d)
-                continue;
-            for(auto &[x, w] : g[v]) {
-                int u = (x + t) % n;
-                if(t + w < MXN && dt[u][t + w] > d + w) {
-                    dt[u][t + w] = d + w;
-                    pq.push({d + w, t + w, u});
-                }
-            }
-            if(t + 1 < MXN && dt[v][t + 1] > d + 1) {
-                dt[v][t + 1] = d + 1;
-                pq.push({d + 1, t + 1, v});
-            }
-        }
-        for(int j = 0; j < n; j++)
-            cout << *min_element(dt[j], dt[j] + MXN) << ' ';
-        cout << '\n';
+    int tt = 1;
+    std::cin >> tt;
+    while(tt--) {
+        solve_case();
     }
     return 0;
+}
+
+const int MXN = 200 * 1000 + 3;
+vector<int> g[MXN];
+int dp[MXN], a[MXN], t[MXN];
+bool vis[MXN];
+int n, m;
+
+int dfs(int v, int p) {
+    if(vis[v])
+        return 0;
+    dp[v] = 0;
+    vis[v] = true;
+    int sum = a[v];
+    for(int u : g[v]) if(u != p) {
+        sum += dfs(u, v);
+    }
+    dp[v] = t[v] - sum;
+    return dp[v];
+}
+
+void solve_case() {
+    cin >> n >> m;
+    for(int i = 0; i <= n; i++) {
+        dp[i] = a[i] = t[i] = 0;
+        vis[i] = false;
+        g[i].clear();
+    }
+    for(int i = 1; i <= n; i++) 
+        cin >> a[i];
+    for(int i = 1; i <= n; i++) 
+        cin >> t[i];
+
+    for(int u, v, i = 0; i < m; i++) {
+        cin >> u >> v;
+        g[u].push_back(v);
+        g[v].push_back(u);
+    }
+    dfs(1, -1);
+    // for(int i = 1; i <= n; i++) 
+    //     cout << dp[i] << ' ';
+    // cout << '\n';
+    cout << (dp[1] ? "NO" : "YES") << '\n';
 }

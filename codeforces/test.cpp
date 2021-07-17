@@ -1,36 +1,57 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define int long long
 
-const int N = 1e5 + 2;
-const int inf = 1e9;
-vector<int> g[N];
-int sz[N], ans[N];
+std::mt19937 rng((int) std::chrono::steady_clock::now().time_since_epoch().count());
 
-int dfs(int v, int p) {
-    sz[v] = 1;
-    int c = 1, t = 0;
-    for(int u : g[v]) if(u != p) {
-        sz[v] += dfs(u, v);
-        ans[v] += ans[u];
-        t++;
+int n;
+vector<int> a;
+
+int query(int x) {
+    if(a[x])
+        return a[x];
+    cout << "? " << x << endl;
+    cin >> a[x];
+    return a[x];
+}
+
+void kek(int x, int y) {
+    cout << "! " << x << ' ' << y << endl;
+    exit(0);
+}
+
+bool in(array<int, 2> x, array<int, 2> y) {
+    for(int rep = 0; rep < 2; rep++) {
+        if(x[0] <= y[0] && y[0] <= x[1])
+            return true;
+        swap(x, y);
     }
-    while(c <= t) c *= 2, ans[v]++;
-    ans[v] += t;
-    return sz[v];
+    return false;
 }
 
 signed main() {
     std::ios::sync_with_stdio(0);
     std::cout.tie(0);
     std::cin.tie(0);
-    int n; cin >> n;
-    for(int i = 1, u, v; i < n; i++) {
-        cin >> u >> v;
-        g[u].push_back(v);
-        g[v].push_back(u);
+    cin >> n;
+    if(n & 1)
+        kek(-1, -1);
+    a.resize(2 * n + 2);
+    query(1); query(1 + n);
+    if(a[1] == a[n + 1])
+        kek(1, n + 1);
+    int mn = 1, mx = n;
+    while(mn < mx) {
+        int mid = (mn + mx) >> 1;
+        query(mid); query(mid + n);
+        if(a[mid] == a[n + mid])
+            kek(mid, n + mid);
+        array<int, 2> x = {min(a[mn], a[mid]), max(a[mn], a[mid])};
+        array<int, 2> y = {min(a[mn + n], a[mid + n]), max(a[mn + n], a[n + mid])};
+        if(in(x, y))
+            mx = mid;
+        else
+            mn = mid + 1;
     }
-    dfs(1, -1);
-    cout << ans[1] << '\n';
+    cout << "! -1 -1" << endl;
     return 0;
 }
