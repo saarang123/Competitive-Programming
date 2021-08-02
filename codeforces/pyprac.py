@@ -1,18 +1,18 @@
-alpha = "abcdefghijklmnopqrstuvwxyz"
-ok = []
-for i in range(26):
-    ok.append(0)
-fib = [0, 1]
-for i in range(30):
-    fib.append(fib[-1] + fib[-2])
+from math import *
 
-for i in range(26):
-    ok[i] = (i + fib[i]) % 26
-print(ok)
-s = "apollomission"
-ans = ""
-for i in range(len(s)):
-    cnt = ord(s[i]) - ord('a')
-    ans += alpha[ok[cnt]]
+def check(x):
+    n = x
+    sm = 0
+    while x > 0:
+        sm += x % 10
+        x //= 10
+    return gcd(n, sm) > 1
 
-print(ans)
+for _ in range(int(input())):
+    n = int(input())
+    while True:
+        if check(n):
+            ans = n
+            break
+        n += 1
+    print(ans)
