@@ -156,10 +156,6 @@ signed main() {
     std::cin.tie(0);
     freopen("poetry.in", "r", stdin);
     freopen("poetry.out", "w", stdout);
-    #ifdef saarang
-    freopen("/home/saarang/Documents/cp/input.txt", "r", stdin);
-    freopen("/home/saarang/Documents/cp/output.txt", "w", stdout);
-    #endif
     cin >> n >> m >> k;
     vector<int> cost(n);
     for(int s, i, _ = 0; _ < n; _++) {

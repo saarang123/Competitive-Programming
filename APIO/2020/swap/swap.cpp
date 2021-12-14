@@ -99,7 +99,6 @@ void init(int N, int M, std::vector<int> U, std::vector<int> V, std::vector<int>
 	dfs();
 }
 
-
 int getMinimumFuelCapacity(int X, int Y) {
 	return query(LCA(X, Y));
 }

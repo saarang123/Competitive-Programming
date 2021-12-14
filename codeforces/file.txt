@@ -1,0 +1,10 @@
+Saarang and Vishesh have each set $N$ problems. Each of the $2N$ problems have difficulty rating according to Saarang and a difficulty rating according to Vishesh (they may be different). 
+
+Saarang wants to challenge Vishesh with one of his problems. If Vishesh receives a problem from Saarang, he will want to challenge Saarang with a problem as well. Since Vishesh wants to appear as a strong problem setter, he will pick a problem \textbf{atleast as difficult} as the problem he received (according to Vishesh's) but no more than $K$ units harder. If Vishesh cannot give Saarang such a problem, he shall quit problemsetting!
+
+If Vishesh does return Saarang a problem, Saarang will similarly try to give Vishesh a problem which is at least as hard but no more than $K$ units harder (according to Saarang). If this is impossible, Saarang too will quit! Otherwise, he continues to give Vishesh a problem. The cycle will continue until one of the problem setters quit, an unhappy outcomes, or one of the problem setters receive a problem which he accords a difficulty value of $0$, in which case the exchange shall end and both problem setters will be happy.
+
+Note that a problem may not be given twice, nor can either setter return a problem given to him.
+
+For each of the $N$ problems Saarang could select as his initial challenge to Vishesh, determine the minimum number of problems that could possibly be exchanged before the setters are happy. 
+

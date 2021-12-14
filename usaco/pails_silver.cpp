@@ -4,6 +4,8 @@ using namespace std;
 #define mp make_pair
 #define f first
 #define s second
+#define fin cin
+#define fout cout
 typedef long long ll;
 
 int main()
@@ -11,8 +13,8 @@ int main()
     ios::sync_with_stdio(0);
     cin.tie(0);cout.tie(0);
     //freopen("input.txt", "r", stdin);
-    ifstream fin("pails.in");
-    ofstream fout("pails.out");
+    // ifstream fin("pails.in");
+    // ofstream fout("pails.out");
     int x,y,k,m,i,j;
     fin >> x >> y >> k >> m;
     bool nex[x+1][y+1];

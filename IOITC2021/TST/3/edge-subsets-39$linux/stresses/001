@@ -1,0 +1,1 @@
+{"id":"5b05c57981ecb302f21f501403ab6724","index":1,"scriptPattern":"gen 10 20 20 [10..10000]","inputFile":"stdin","outputFile":"stdout","memoryLimit":256,"timeLimit":1000,"totalTimeLimit":120000,"solutionNames":["bruteforce.cpp","soln.cpp"],"description":"","solutionNamesUid":""}

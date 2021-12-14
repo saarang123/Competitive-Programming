@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<problem revision="39" short-name="edge-subsets" url="https://polygon.codeforces.com/p4AppOu/vichitr/edge-subsets">
+        
+    <names>
+                
+        <name language="english" value="Edge Subsets"/>
+            
+    </names>
+        
+    <statements>
+                
+        <statement charset="UTF-8" language="english" mathjax="true" path="statements/english/problem.tex" type="application/x-tex"/>
+                
+        <statement charset="UTF-8" language="english" mathjax="true" path="statements/.html/english/problem.html" type="text/html"/>
+            
+    </statements>
+        
+    <judging cpu-name="Intel(R) Core(TM) i3-8100 CPU @ 3.60GHz" cpu-speed="3600" input-file="" output-file="">
+                
+        <testset name="subtask1">
+                        
+            <time-limit>1000</time-limit>
+                        
+            <memory-limit>268435456</memory-limit>
+                        
+            <test-count>3</test-count>
+                        
+            <input-path-pattern>subtask1/%02d</input-path-pattern>
+                        
+            <answer-path-pattern>subtask1/%02d.a</answer-path-pattern>
+                        
+            <tests>
+                                
+                <test method="manual" sample="true"/>
+                                
+                <test method="manual"/>
+                                
+                <test method="manual"/>
+                            
+            </tests>
+                    
+        </testset>
+                
+        <testset name="testsmanualupload">
+                        
+            <time-limit>1000</time-limit>
+                        
+            <memory-limit>268435456</memory-limit>
+                        
+            <test-count>0</test-count>
+                        
+            <input-path-pattern>testsmanualupload/%02d</input-path-pattern>
+                        
+            <answer-path-pattern>testsmanualupload/%02d.a</answer-path-pattern>
+                        
+            <tests/>
+                    
+        </testset>
+                
+        <testset name="randominvocations">
+                        
+            <time-limit>1000</time-limit>
+                        
+            <memory-limit>268435456</memory-limit>
+                        
+            <test-count>0</test-count>
+                        
+            <input-path-pattern>randominvocations/%02d</input-path-pattern>
+                        
+            <answer-path-pattern>randominvocations/%02d.a</answer-path-pattern>
+                        
+            <tests/>
+                    
+        </testset>
+                
+        <testset name="fullsubtask">
+                        
+            <time-limit>1000</time-limit>
+                        
+            <memory-limit>268435456</memory-limit>
+                        
+            <test-count>0</test-count>
+                        
+            <input-path-pattern>fullsubtask/%02d</input-path-pattern>
+                        
+            <answer-path-pattern>fullsubtask/%02d.a</answer-path-pattern>
+                        
+            <tests/>
+                    
+        </testset>
+                
+        <testset name="mediumn">
+                        
+            <time-limit>1000</time-limit>
+                        
+            <memory-limit>268435456</memory-limit>
+                        
+            <test-count>0</test-count>
+                        
+            <input-path-pattern>mediumn/%02d</input-path-pattern>
+                        
+            <answer-path-pattern>mediumn/%02d.a</answer-path-pattern>
+                        
+            <tests/>
+                    
+        </testset>
+                
+        <testset name="tests">
+                        
+            <time-limit>1000</time-limit>
+                        
+            <memory-limit>268435456</memory-limit>
+                        
+            <test-count>50</test-count>
+                        
+            <input-path-pattern>tests/%02d</input-path-pattern>
+                        
+            <answer-path-pattern>tests/%02d.a</answer-path-pattern>
+                        
+            <tests>
+                                
+                <test cmd="gen 50 1 17 0 50 40" method="generated"/>
+                                
+                <test cmd="gen 50 1 17 0 50 41" method="generated"/>
+                                
+                <test cmd="gen 50 1 17 0 50 42" method="generated"/>
+                                
+                <test cmd="gen 50 1 17 0 50 43" method="generated"/>
+                                
+                <test cmd="gen 50 1 17 0 50 44" method="generated"/>
+                                
+                <test cmd="gen 50 17 17 40 50 140" method="generated"/>
+                                
+                <test cmd="gen 50 17 17 40 50 141" method="generated"/>
+                                
+                <test cmd="gen 50 17 17 40 50 142" method="generated"/>
+                                
+                <test cmd="gen 50 17 17 40 50 143" method="generated"/>
+                                
+                <test cmd="gen 50 17 17 40 50 144" method="generated"/>
+                                
+                <test cmd="gen 100 95 100 95 100 240" method="generated"/>
+                                
+                <test cmd="gen 100 95 100 95 100 241" method="generated"/>
+                                
+                <test cmd="gen 100 95 100 95 100 242" method="generated"/>
+                                
+                <test cmd="gen 100 95 100 95 100 243" method="generated"/>
+                                
+                <test cmd="gen 100 95 100 95 100 244" method="generated"/>
+                                
+                <test cmd="gen 100 95 100 95 100 340 -negativecycles=80" method="generated"/>
+                                
+                <test cmd="gen 100 95 100 95 100 341 -negativecycles=80" method="generated"/>
+                                
+                <test cmd="gen 100 95 100 95 100 342 -negativecycles=80" method="generated"/>
+                                
+                <test cmd="gen 100 95 100 95 100 343 -negativecycles=80" method="generated"/>
+                                
+                <test cmd="gen 100 95 100 95 100 344 -negativecycles=80" method="generated"/>
+                                
+                <test cmd="gen 100 950 1000 950 1000 440 -rootonly=1" method="generated"/>
+                                
+                <test cmd="gen 100 950 1000 950 1000 441 -rootonly=1" method="generated"/>
+                                
+                <test cmd="gen 100 950 1000 950 1000 442 -rootonly=1" method="generated"/>
+                                
+                <test cmd="gen 100 950 1000 950 1000 443 -rootonly=1" method="generated"/>
+                                
+                <test cmd="gen 100 950 1000 950 1000 444 -rootonly=1" method="generated"/>
+                                
+                <test cmd="gen 100 950 1000 950 1000 450 -rootonly=1 -negativecycles=80" method="generated"/>
+                                
+                <test cmd="gen 100 950 1000 950 1000 451 -rootonly=1 -negativecycles=80" method="generated"/>
+                                
+                <test cmd="gen 100 950 1000 950 1000 452 -rootonly=1 -negativecycles=80" method="generated"/>
+                                
+                <test cmd="gen 100 950 1000 950 1000 453 -rootonly=1 -negativecycles=80" method="generated"/>
+                                
+                <test cmd="gen 100 950 1000 950 1000 454 -rootonly=1 -negativecycles=80" method="generated"/>
+                                
+                <test cmd="gen 100 950 1000 950 1000 540" method="generated"/>
+                                
+                <test cmd="gen 100 950 1000 950 1000 541" method="generated"/>
+                                
+                <test cmd="gen 100 950 1000 950 1000 542" method="generated"/>
+                                
+                <test cmd="gen 100 950 1000 950 1000 543" method="generated"/>
+                                
+                <test cmd="gen 100 950 1000 950 1000 544" method="generated"/>
+                                
+                <test cmd="gen 100 950 1000 950 1000 545" method="generated"/>
+                                
+                <test cmd="gen 100 950 1000 950 1000 546" method="generated"/>
+                                
+                <test cmd="gen 100 950 1000 950 1000 547" method="generated"/>
+                                
+                <test cmd="gen 100 950 1000 950 1000 548" method="generated"/>
+                                
+                <test cmd="gen 100 950 1000 950 1000 549" method="generated"/>
+                                
+                <test cmd="gen 100 950 1000 950 1000 640 -negativecycles=80" method="generated"/>
+                                
+                <test cmd="gen 100 950 1000 950 1000 641 -negativecycles=80" method="generated"/>
+                                
+                <test cmd="gen 100 950 1000 950 1000 642 -negativecycles=80" method="generated"/>
+                                
+                <test cmd="gen 100 950 1000 950 1000 643 -negativecycles=80" method="generated"/>
+                                
+                <test cmd="gen 100 950 1000 950 1000 644 -negativecycles=80" method="generated"/>
+                                
+                <test cmd="gen 100 950 1000 950 1000 645 -negativecycles=80" method="generated"/>
+                                
+                <test cmd="gen 100 950 1000 950 1000 646 -negativecycles=80" method="generated"/>
+                                
+                <test cmd="gen 100 950 1000 950 1000 647 -negativecycles=80" method="generated"/>
+                                
+                <test cmd="gen 100 950 1000 950 1000 648 -negativecycles=80" method="generated"/>
+                                
+                <test cmd="gen 100 950 1000 950 1000 649 -negativecycles=80" method="generated"/>
+                            
+            </tests>
+                    
+        </testset>
+                
+        <testset name="rootendpoint">
+                        
+            <time-limit>1000</time-limit>
+                        
+            <memory-limit>268435456</memory-limit>
+                        
+            <test-count>0</test-count>
+                        
+            <input-path-pattern>rootendpoint/%02d</input-path-pattern>
+                        
+            <answer-path-pattern>rootendpoint/%02d.a</answer-path-pattern>
+                        
+            <tests/>
+                    
+        </testset>
+            
+    </judging>
+        
+    <files>
+                
+        <resources>
+                        
+            <file path="files/jngen.h" type="h.g++"/>
+                        
+            <file path="files/olymp.sty"/>
+                        
+            <file path="files/problem.tex"/>
+                        
+            <file path="files/statements.ftl"/>
+                        
+            <file path="files/testlib.h" type="h.g++"/>
+                    
+        </resources>
+                
+        <executables>
+                        
+            <executable>
+                                
+                <source path="files/check.cpp" type="cpp.msys2-mingw64-9-g++17"/>
+                            
+            </executable>
+                        
+            <executable>
+                                
+                <source path="files/gen.cpp" type="cpp.msys2-mingw64-9-g++17"/>
+                            
+            </executable>
+                        
+            <executable>
+                                
+                <source path="files/validator.cpp" type="cpp.msys2-mingw64-9-g++17"/>
+                            
+            </executable>
+                        
+            <executable>
+                                
+                <source path="files/validator_sub1.cpp" type="cpp.msys2-mingw64-9-g++17"/>
+                            
+            </executable>
+                        
+            <executable>
+                                
+                <source path="files/validator_sub2.cpp" type="cpp.msys2-mingw64-9-g++17"/>
+                            
+            </executable>
+                        
+            <executable>
+                                
+                <source path="files/validator_sub3.cpp" type="cpp.msys2-mingw64-9-g++17"/>
+                            
+            </executable>
+                    
+        </executables>
+            
+    </files>
+        
+    <assets>
+                
+        <checker type="testlib">
+                        
+            <source path="files/check.cpp" type="cpp.msys2-mingw64-9-g++17"/>
+                        
+            <copy path="check.cpp" type="cpp.msys2-mingw64-9-g++17"/>
+                        
+            <testset>
+                                
+                <test-count>2</test-count>
+                                
+                <input-path-pattern>files/tests/checker-tests/%02d</input-path-pattern>
+                                
+                <output-path-pattern>files/tests/checker-tests/%02d.o</output-path-pattern>
+                                
+                <answer-path-pattern>files/tests/checker-tests/%02d.a</answer-path-pattern>
+                                
+                <tests>
+                                        
+                    <test verdict="ok"/>
+                                        
+                    <test verdict="ok"/>
+                                    
+                </tests>
+                            
+            </testset>
+                    
+        </checker>
+                
+        <validators>
+                        
+            <validator>
+                                
+                <source path="files/validator.cpp" type="cpp.msys2-mingw64-9-g++17"/>
+                                
+                <testset>
+                                        
+                    <test-count>1</test-count>
+                                        
+                    <input-path-pattern>files/tests/validator-tests/%02d</input-path-pattern>
+                                        
+                    <tests>
+                                                
+                        <test verdict="valid"/>
+                                            
+                    </tests>
+                                    
+                </testset>
+                            
+            </validator>
+                    
+        </validators>
+                
+        <solutions>
+                        
+            <solution tag="accepted">
+                                
+                <source path="solutions/anay_soln.cpp" type="cpp.msys2-mingw64-9-g++17"/>
+                            
+            </solution>
+                        
+            <solution tag="time-limit-exceeded-or-accepted">
+                                
+                <source path="solutions/bruteforce.cpp" type="cpp.msys2-mingw64-9-g++17"/>
+                            
+            </solution>
+                        
+            <solution tag="rejected">
+                                
+                <source path="solutions/dijkstra.cpp" type="cpp.msys2-mingw64-9-g++17"/>
+                            
+            </solution>
+                        
+            <solution tag="rejected">
+                                
+                <source path="solutions/dijkstra2.cpp" type="cpp.msys2-mingw64-9-g++17"/>
+                            
+            </solution>
+                        
+            <solution tag="accepted">
+                                
+                <source path="solutions/dragonado_sol.cpp" type="cpp.msys2-mingw64-9-g++17"/>
+                            
+            </solution>
+                        
+            <solution tag="rejected">
+                                
+                <source path="solutions/dragonado_wa.cpp" type="cpp.msys2-mingw64-9-g++17"/>
+                            
+            </solution>
+                        
+            <solution tag="main">
+                                
+                <source path="solutions/soln.cpp" type="cpp.msys2-mingw64-9-g++17"/>
+                            
+            </solution>
+                        
+            <solution tag="accepted">
+                                
+                <source path="solutions/soln2.cpp" type="cpp.msys2-mingw64-9-g++17"/>
+                            
+            </solution>
+                        
+            <solution tag="wrong-answer">
+                                
+                <source path="solutions/soln_root.cpp" type="cpp.msys2-mingw64-9-g++17"/>
+                                
+                <extra-tags>
+                                        
+                    <extra-tag tag="accepted" testset="rootendpoint"/>
+                                    
+                </extra-tags>
+                            
+            </solution>
+                        
+            <solution tag="accepted">
+                                
+                <source path="solutions/umniksoln.cpp" type="cpp.msys2-mingw64-9-g++17"/>
+                            
+            </solution>
+                    
+        </solutions>
+            
+    </assets>
+        
+    <properties>
+                
+        <property name="tests-wellformed" value="true"/>
+            
+    </properties>
+        
+    <stresses>
+                
+        <stress-count>4</stress-count>
+                
+        <stress-path-pattern>stresses/%03d</stress-path-pattern>
+                
+        <list>
+                        
+            <stress index="4" path="stresses/004"/>
+                        
+            <stress index="3" path="stresses/003"/>
+                        
+            <stress index="2" path="stresses/002"/>
+                        
+            <stress index="1" path="stresses/001"/>
+                    
+        </list>
+            
+    </stresses>
+    
+</problem>

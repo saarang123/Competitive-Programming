@@ -1,0 +1,1 @@
+{"id":"adfd1c69f938e597bb10128a47355fcc","index":2,"scriptPattern":"gen 100 500 1000 500 1000 [40..10000]","inputFile":"stdin","outputFile":"stdout","memoryLimit":256,"timeLimit":1000,"totalTimeLimit":120000,"solutionNames":["soln2.cpp","soln.cpp"],"description":"","solutionNamesUid":""}

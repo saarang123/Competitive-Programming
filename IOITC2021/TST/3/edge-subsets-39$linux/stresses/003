@@ -1,0 +1,1 @@
+{"id":"23fa428dfb3c41deb7bc28a7290460a8","index":3,"scriptPattern":"gen 100 500 1000 500 1000 [40..10000] -rootonly\u003d1 -stress\u003d1","inputFile":"stdin","outputFile":"stdout","memoryLimit":256,"timeLimit":1000,"totalTimeLimit":120000,"solutionNames":["soln_root.cpp","soln.cpp"],"description":"","solutionNamesUid":""}

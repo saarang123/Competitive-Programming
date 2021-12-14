@@ -1,0 +1,1 @@
+{"id":"4e2496e346fe2e7d4f1db40721c9e7cb","index":4,"scriptPattern":"gen 1000 1 17 0 50 [40..10000] -stress\u003d1","inputFile":"stdin","outputFile":"stdout","memoryLimit":256,"timeLimit":1000,"totalTimeLimit":120000,"solutionNames":["anay_soln.cpp"],"description":"","solutionNamesUid":""}

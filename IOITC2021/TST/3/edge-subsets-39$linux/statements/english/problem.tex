@@ -1,0 +1,54 @@
+\begin{problem}{Edge Subsets}{standard input}{standard output}{1 second}{256 megabytes}
+
+Instead of updating statement here. Request for .tex file on telegram.
+
+You are given a rooted tree with $n$ vertices. It is rooted at node $1$. Additionally there are $m$ tuples of the form $(u_i ,v_i ,l_i ,r_i)$. $u_i,v_i$ are vertices in the tree such that $u_i$ is an ancestor of $v_i$, and $l_i,r_i$ are integers.
+
+Choose a subset of the edges such that for every such tuple, the number of edges chosen on the path from $u_i$ to $v_i$ lies in the range $[l_i,r_i]$, or state that no such subset exists.
+
+\InputFile
+First line contains an integer $T$ --- the number of test cases.
+
+$T$ test cases follow. For each test case,
+
+First line contains two space separated integers $n$ $(1 \leq n \leq 1000 )$ and $m$ $(0 \leq m \leq 1000)$ --- the number of vertices and number of tuples respectively.
+
+Second line contains $n-1$ space separated integers $p_2, p_3, \ldots, p_n$ --- $p_i$ is parent of $i$-th node.
+
+Next $m$ lines each containing four space separated integers $u_i, v_i, l_i, r_i$ $(1 \leq u_i, v_i \leq n, 0 \leq l_i \leq r_i \leq n-1)$ --- representing $m$ tuples.
+
+It is guaranteed that $u_i$ is an ancestor of $v_i$.
+
+It is guaranteed that the sum of $n$ over all test cases does not exceed $100000$.
+
+It is guaranteed that the sum of $m$ over all test cases does not exceed $100000$.
+
+
+\OutputFile
+For each test case,
+If there is no such subset then print $-1$ in a single line.
+
+If there exists one such subset then
+
+In the first line, print an integer $k$ --- the size of chosen edge subset. 
+
+In second line print $k$ space separated integers $v_1, v_2, v_3, \ldots, v_k$ --- describing chosen edge subset. Here $v_i$ represents an edge from its parent node to itself $(p_{v_i}, v_i)$. 
+
+
+
+\Example
+
+\begin{example}
+\exmpfile{example.01}{example.01.a}%
+\end{example}
+
+\Note
+Subtask ideas -
+1) Small n. Bruteforce: check every edge subset
+3) r_i <= 1. Super set of subtask 2.
+4) Tree is a straight chain. 
+5) One endpoint in conditions is root. This is also a super set of subtask 2.
+6) Original constraints.
+
+\end{problem}
+
